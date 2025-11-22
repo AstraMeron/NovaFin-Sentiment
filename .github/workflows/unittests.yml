@@ -1,0 +1,35 @@
+name: Python Unit Tests
+
+on:
+  # Triggers the workflow on push or pull request events 
+  # for the main development branches
+  push:
+    branches: [ task-1 ]
+  pull_request:
+    branches: [ task-1 ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Test on standard Python versions
+        python-version: [ '3.9', '3.10', '3.11' ]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # Install the libraries listed in your requirements.txt
+          pip install -r requirements.txt
+          
+      - name: Run Pytest Unit Tests
+        # The 'tests' directory is where your unit tests will reside
+        run: |
+          pytest tests/
