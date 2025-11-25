@@ -2,3 +2,5 @@ pandas
 matplotlib
 pytest
 nltk
+seaborn
+scipy
