@@ -42,20 +42,26 @@ The final analysis confirmed a moderate, statistically reliable positive correla
     cd NovaFin-Sentiment
     ```
 
-2. **Create and Activate Virtual Environment (using venv):**
+
+2. **Create Virtual Environment:**
 
     ```bash
-    # Create the environment
     python -m venv venv
+    ```
 
-    # Activate (Windows PowerShell)
+3. **Activate Virtual Environment:**
+
+    - **Windows PowerShell:**
+    ```bash
     .\venv\Scripts\activate
+    ```
 
-    # Activate (Linux/macOS)
+    - **Linux/macOS:**
+    ```bash
     source venv/bin/activate
     ```
 
-3. **Install Dependencies:**
+4. **Install Dependencies:**
 
     ```bash
     pip install -r requirements.txt
