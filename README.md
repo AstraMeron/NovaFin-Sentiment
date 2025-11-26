@@ -1,72 +1,70 @@
 # NovaFin-Sentiment: Predicting Price Moves with News Sentiment
 
 ## 🚀 Project Overview
+This project investigated the correlation between daily financial news sentiment and stock price movements for major technology stocks (AAPL, AMZN, GOOG, META, MSFT, NVDA). The methodology involved three phases: **Exploratory Data Analysis (EDA)**, **Quantitative Analysis (Technical Indicators)**, and **Final Correlation Analysis (Task 3)**.
 
-This project aims to investigate the correlation between financial news sentiment and stock price movements for a basket of major technology stocks (AAPL, AMZN, GOOG, META, MSFT, NVDA). The methodology involves two core phases: **Exploratory Data Analysis (EDA) & Sentiment Preparation** of historical news headlines, and **Quantitative Analysis** using technical indicators.
+The final analysis confirmed a moderate, statistically reliable positive correlation for NVDA (+0.52), showing that quantified news sentiment can serve as a confirmation signal for technical trading strategies.
 
-The final goal is to merge these data sources to test the hypothesis that shifts in news sentiment can act as a leading or coincident indicator of stock price changes.
+---
+
+## 💡 Key Finding: The NVDA Sentiment Signal
+- **Correlation:** +0.52 Pearson correlation coefficient between average daily news sentiment and daily % return for NVDA.  
+- **Reliability:** Based on the highest reliable overlapping data points (N=4).  
+- **Strategy:** Use positive sentiment (VADER score > 0.2) to confirm bullish signals from SMA and RSI.
 
 ---
 
 ## 🛠️ Project Structure and Deliverables
 
+### Directory
 | Directory | Content |
-| :--- | :--- |
-| `data/` | Contains the raw and prepared datasets. |
-| `data/yfinance_data/` | Contains the raw stock price history CSVs (AAPL, AMZN, GOOG, META, MSFT, NVDA). |
-| `notebooks/` | Contains the primary analysis files. |
-| `src/` | Holds reusable Python scripts and helper modules. |
-| `tests/` | Contains Pytest unit tests for continuous integration (CI). |
+|-----------|---------|
+| `data/` | Raw and prepared datasets. |
+| `data/yfinance_data/` | Raw stock price CSVs (AAPL, AMZN, GOOG, META, MSFT, NVDA). |
+| `notebooks/` | Primary analysis notebooks. |
+| `src/` | Reusable Python scripts and helper modules. |
+| `tests/` | Pytest unit tests for CI. |
+| `plots/` | Final visualizations including correlation and EDA plots. |
 
 ### Notebooks
-
-1.  **`01_news_data_eda.ipynb` (Task 1 Complete):** Focuses on cleaning, tokenizing, and analyzing news headlines. It prepares the data for eventual sentiment scoring and resolves dependency challenges (e.g., NLTK `LookupError`).
-2.  **`02_financial_analysis.ipynb` (Task 2 Complete):** Focuses on loading and applying quantitative analysis to all six stock tickers. It uses `TA-Lib` to calculate indicators (SMA, RSI, MACD, BBANDS) and financial metrics (Daily Return).
-3.  **`03_correlation_analysis.ipynb` (Next Step):** (To be created) Will merge the sentiment scores with the financial data to calculate correlation coefficients.
+- `01_news_data_eda.ipynb` – Cleaning, tokenizing, and analyzing news headlines (Task 1).  
+- `02_financial_analysis.ipynb` – Quantitative analysis, indicators (SMA, RSI, MACD, BBANDS), Daily Return (Task 2).  
+- `03_correlation_analysis.ipynb` – Merges sentiment with financial data, calculates correlations, generates plots (Task 3).
 
 ---
 
 ## ⚙️ Setup and Dependencies
 
-This project uses a standard Python virtual environment.
+### Clone Repository
+```bash
+git clone https://github.com/AstraMeron/NovaFin-Sentiment.git
+cd NovaFin-Sentiment
 
-### Prerequisites
+### Virtual Environment
+Create a virtual environment and activate it:
 
-1.  Clone the repository:
-    ```bash
-    git clone [https://github.com/AstraMeron/NovaFin-Sentiment.git](https://github.com/AstraMeron/NovaFin-Sentiment.git)
-    cd NovaFin-Sentiment
-    ```
+- Windows PowerShell: `python -m venv venv` then `.\venv\Scripts\activate`
+- Linux/macOS: `python -m venv venv` then `source venv/bin/activate`
 
-2.  Create and activate the virtual environment:
-    ```bash
-    python -m venv venv
-    .\venv\Scripts\activate  # On Windows PowerShell
-    # source venv/bin/activate  # On Linux/macOS
-    ```
+### Install Dependencies
+Install all required Python packages:
 
-3.  Install Dependencies:
-    ```bash
-    pip install -r requirements.txt
-    # NOTE: TA-Lib dependency may require special installation on some systems.
-    ```
+`pip install -r requirements.txt`  
+*Note: TA-Lib may require special installation on some systems.*
 
-### Running the Analysis
-
-To reproduce the analysis, open the following notebooks in sequence:
-1.  **`01_news_data_eda.ipynb`**
-2.  **`02_financial_analysis.ipynb`**
+### Running Analysis
+Open and run the notebooks in this order:  
+1. `01_news_data_eda.ipynb`  
+2. `02_financial_analysis.ipynb`  
+3. `03_correlation_analysis.ipynb`  
 
 ### Continuous Integration (CI)
+Unit tests are configured via GitHub Actions and run automatically on push. Any CI issues in Task 1 (NLTK or environment setup) have been resolved.
 
-Unit tests are configured via GitHub Actions. Workflows are triggered on push to ensure code quality. CI challenges encountered during Task 1 related to environment setup and NLTK dependency loading were resolved to ensure reliable testing.
-
----
-
-## 📝 Interim Submission Status
-
+### Final Submission Status
 | Deliverable | Status | Branch |
-| :--- | :--- | :--- |
-| **Task 1: EDA & Sentiment Prep** | ✅ Complete | `main` |
-| **Task 2: Quantitative Analysis** | ✅ Complete | `main` |
-| **Current Progress** | Data fully prepared for Correlation Analysis. | `main` |
+|------------|--------|--------|
+| Task 1: EDA & Sentiment Prep | ✅ Complete | main |
+| Task 2: Quantitative Analysis | ✅ Complete | main |
+| Task 3: Correlation Analysis | ✅ Complete | main |
+| Final Deliverable | Final Report & Blog Post Submitted | main |
