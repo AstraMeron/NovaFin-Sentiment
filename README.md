@@ -35,36 +35,46 @@ The final analysis confirmed a moderate, statistically reliable positive correla
 
 ## ⚙️ Setup and Dependencies
 
-### Clone Repository
+1. **Clone the Repository:**
+
+    ```bash
+    git clone https://github.com/AstraMeron/NovaFin-Sentiment.git
+    cd NovaFin-Sentiment
+    ```
+
+2. **Create and Activate Virtual Environment (using venv):**
+
+    ```bash
+    # Create the environment
+    python -m venv venv
+
+    # Activate (Windows PowerShell)
+    .\venv\Scripts\activate
+
+    # Activate (Linux/macOS)
+    source venv/bin/activate
+    ```
+
+3. **Install Dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+    > **Note:** TA-Lib may require special installation on some systems.
+
+---
+
+## 🏃 Running the Analysis
+
+Run the notebooks in the following order:
+
 ```bash
-git clone https://github.com/AstraMeron/NovaFin-Sentiment.git
-cd NovaFin-Sentiment
+# 1. Exploratory Data Analysis on news data
+01_news_data_eda.ipynb
 
-### Virtual Environment
-Create a virtual environment and activate it:
+# 2. Quantitative analysis of financial data
+02_financial_analysis.ipynb
 
-- Windows PowerShell: `python -m venv venv` then `.\venv\Scripts\activate`
-- Linux/macOS: `python -m venv venv` then `source venv/bin/activate`
-
-### Install Dependencies
-Install all required Python packages:
-
-`pip install -r requirements.txt`  
-*Note: TA-Lib may require special installation on some systems.*
-
-### Running Analysis
-Open and run the notebooks in this order:  
-1. `01_news_data_eda.ipynb`  
-2. `02_financial_analysis.ipynb`  
-3. `03_correlation_analysis.ipynb`  
-
-### Continuous Integration (CI)
-Unit tests are configured via GitHub Actions and run automatically on push. Any CI issues in Task 1 (NLTK or environment setup) have been resolved.
-
-### Final Submission Status
-| Deliverable | Status | Branch |
-|------------|--------|--------|
-| Task 1: EDA & Sentiment Prep | ✅ Complete | main |
-| Task 2: Quantitative Analysis | ✅ Complete | main |
-| Task 3: Correlation Analysis | ✅ Complete | main |
-| Final Deliverable | Final Report & Blog Post Submitted | main |
+# 3. Correlation analysis between sentiment and market indicators
+03_correlation_analysis.ipynb
